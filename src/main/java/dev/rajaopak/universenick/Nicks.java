@@ -178,8 +178,8 @@ public final class Nicks extends JavaPlugin {
     private void registerCommands() {
         getCommand("nick").setExecutor(new CommandNick());
         getCommand("nick").setTabCompleter(new CommandNick());
-        getCommand("nonick").setExecutor(new CommandNoNick());
-        getCommand("nonick").setTabCompleter(new CommandNoNick());
+        getCommand("nickreset").setExecutor(new CommandNickReset());
+        getCommand("nickreset").setTabCompleter(new CommandNickReset());
         getCommand("nickother").setExecutor(new CommandNickOther());
         getCommand("nickother").setTabCompleter(new CommandNickOther());
         getCommand("nickcolor").setExecutor(new CommandNickColor());
