@@ -1,4 +1,4 @@
-name: UniverseNick
+name: UniverseNicks
 version: ${project.version}
 main: dev.rajaopak.universenick.Nicks
 api-version: 1.13
@@ -9,40 +9,40 @@ commands:
   nick:
     description: Change your nickname.
     usage: /nick <nickname>
-    permission: hexnicks.nick
+    permission: universenetwork.nick
   nickother:
     description: Change the nickname of another player.
     usage: /nickother <player> <nickname>
-    permission: hexnicks.nick.other
-  nonick:
+    permission: universenetwork.nick.other
+  nickreset:
     description: Remove your nickname entirely.
-    usage: /nonick [player]
-    permission: hexnicks.nonick
+    usage: /nickreset [player]
+    permission: universenetwork.nickreset
   nickcolor:
     description: Change the color of your nickname.
     usage: /nickcolor <color>
-    permission: hexnicks.nickcolor
+    permission: universenetwork.nickcolor
   nicksreload:
     description: Reload the plugin.
     usage: /nicksreload
-    permission: hexnicks.reload
+    permission: universenetwork.reload
 
 permissions:
-  hexnicks.nick:
+  universenetwork.nick:
     description: Permission to change nicknames.
     default: true
-  hexnicks.nick.other:
+  universenetwork.nick.other:
     description: Permission to change other player's nicknames.
     default: op
-  hexnicks.nonick:
+  universenetwork.nickreset:
     description: Permission to remove nicknames.
     default: true
-  hexnicks.nonick.other:
+  universenetwork.nickreset.other:
     description: Permission to remove other player's nicknames.
     default: op
-  hexnicks.nickcolor:
+  universenetwork.nickcolor:
     description: Permission to change color of nickname.
     default: true
-  hexnicks.reload:
+  universenetwork.reload:
     description: Permission to reload the plugin.
     default: op
