@@ -48,7 +48,7 @@ public class PapiHook extends PlaceholderExpansion {
 
   @Override
   public String onRequest(OfflinePlayer player, @NotNull String identifier) {
-    if (identifier.equalsIgnoreCase("nick")) {
+    if (identifier.equalsIgnoreCase("nickname")) {
       Component nick = Nicks.core().getStoredNick(player.getUniqueId());
       if (nick == null) {
         return player.getName();

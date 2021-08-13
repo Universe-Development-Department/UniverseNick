@@ -30,6 +30,7 @@ import dev.rajaopak.universenick.command.*;
 import dev.rajaopak.universenick.config.ConfigUpdater;
 import dev.rajaopak.universenick.config.JsonConfig;
 import dev.rajaopak.universenick.config.NicksConfig;
+import dev.rajaopak.universenick.hook.PapiHook;
 import dev.rajaopak.universenick.storage.JsonStorage;
 import dev.rajaopak.universenick.storage.SqlStorage;
 import dev.rajaopak.universenick.storage.StorageMethod;
@@ -48,10 +49,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
-import org.bstats.bukkit.Metrics;
-import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -75,7 +76,6 @@ public final class Nicks extends JavaPlugin {
     private static StorageMethod        storage;
     private final JsonConfig            jsonConfig;
     private final Map<UUID, Component>  nickMap;
-    private final Metrics               metrics;
 
     /**
      * Initialize plugin.
@@ -95,8 +95,6 @@ public final class Nicks extends JavaPlugin {
             e.printStackTrace();
         }
         nickMap = new HashMap<>();
-        // Track plugin metrics through bStats
-        metrics = new Metrics(this, 8764);
     }
 
     /**
@@ -143,13 +141,6 @@ public final class Nicks extends JavaPlugin {
 
         // Initialize configuration file
         reload();
-
-        // Custom chart to see what percentage of servers are supporting legacy
-        metrics.addCustomChart(new SimplePie("supporting_legacy",
-                () -> String.valueOf(Nicks.config().LEGACY_COLORS)));
-        // Custom chart to see what percentage of servers are using the built in chat formatter
-        metrics.addCustomChart(new SimplePie("using-chat-formatter",
-                () -> String.valueOf(Nicks.config().CHAT_FORMATTER)));
 
         // Register events
         registerEvents(new PlayerJoin(), software);

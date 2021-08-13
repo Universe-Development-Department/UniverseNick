@@ -16,49 +16,49 @@ public interface NicksMessages {
 
   Args0 PREFIX = () -> utils().configString("message.prefix", null);
 
-  Args0 INVALID_SENDER = () -> utils().configString(utils().getPrefix() + "messages.invalidSender",
+  Args0 INVALID_SENDER = () -> utils().configString("messages.prefix" + "messages.invalidSender",
       "<red>You must be in-game to use this command.");
 
-  Args1<String> UNKNOWN_PLAYER = playerName -> utils().configString(utils().getPrefix() + "messages.unknownPlayer",
+  Args1<String> UNKNOWN_PLAYER = playerName -> utils().configString("messages.prefix" + "messages.unknownPlayer",
       "<red>Unknown player %player%.").replaceText(TextReplacementConfig.builder()
       .matchLiteral("%player%").replacement(playerName).build());
 
-  Args0 NO_PERMISSION = () -> utils().configString(utils().getPrefix() + "messages.noPermission",
+  Args0 NO_PERMISSION = () -> utils().configString("messages.prefix" + "messages.noPermission",
       "<red>You do not have permission to execute this command.");
 
   Args1<Integer> TOO_SHORT = minLength -> MiniMessage.get().parse(Nicks.core().getConfig()
-      .getString(utils().getPrefix() + "messages.tooShort", "<red>That nickname is too short. Minimum length is "
+      .getString("messages.prefix" + "messages.tooShort", "<red>That nickname is too short. Minimum length is "
           + "%length% characters.")).replaceText(TextReplacementConfig.builder().matchLiteral("%length%")
       .replacement(String.valueOf(minLength)).build());
 
-  Args1<Integer> TOO_LONG = maxLength -> utils().configString(utils().getPrefix() + "messages.tooLong",
+  Args1<Integer> TOO_LONG = maxLength -> utils().configString("messages.prefix" + "messages.tooLong",
       "<red>That nickname is too long. Maximum length is %length% characters.")
       .replaceText(TextReplacementConfig.builder().matchLiteral("%length%")
       .replacement(String.valueOf(maxLength)).build());
 
-  Args0 NON_ALPHANUMERIC = () -> utils().configString(utils().getPrefix() + "messages.nonAlphanumeric",
+  Args0 NON_ALPHANUMERIC = () -> utils().configString("messages.prefix" + "messages.nonAlphanumeric",
       "<red>Your nickname must be alphanumeric.");
 
-  Args1<Component> NICKNAME_SET = nickname -> utils().configString(utils().getPrefix() + "messages.nicknameSet",
+  Args1<Component> NICKNAME_SET = nickname -> utils().configString("messages.prefix" + "messages.nicknameSet",
       "<gray>Your nickname has been set to: <white>%nick%<gray>.")
       .replaceText(TextReplacementConfig.builder().matchLiteral("%nick%").replacement(nickname).build());
 
   Args2<Player, Component> NICKNAME_SET_OTHER = (player, nickname) -> utils()
-      .configStringPlaceholders(utils().getPrefix() + "messages.nicknameSetOther", "<aqua>%player%<gray>'s nickname has been " +
+      .configStringPlaceholders("messages.prefix" + "messages.nicknameSetOther", "<aqua>%player%<gray>'s nickname has been " +
           "set to: <white>%nick%<gray>.", player)
       .replaceText(TextReplacementConfig.builder().matchLiteral("%player%").replacement(player.getName()).build())
       .replaceText(TextReplacementConfig.builder().matchLiteral("%nick%").replacement(nickname).build());
 
-  Args0 NICKNAME_REMOVED = () -> utils().configString(utils().getPrefix() + "messages.nicknameRemoved", "<gray>Nickname removed.");
+  Args0 NICKNAME_REMOVED = () -> utils().configString("messages.prefix" + "messages.nicknameRemoved", "<gray>Nickname removed.");
 
   Args1<Player> NICKNAME_REMOVED_OTHER = target -> utils().configStringPlaceholders(
-                  utils().getPrefix() + "messages.nicknameRemovedOther", "<aqua>%player%<gray>'s nickname removed.", target)
+                  "messages.prefix" + "messages.nicknameRemovedOther", "<aqua>%player%<gray>'s nickname removed.", target)
       .replaceText(TextReplacementConfig.builder().matchLiteral("%player%").replacement(target.getName()).build());
 
-  Args0 ONLY_COLOR_CODES = () -> utils().configString(utils().getPrefix() + "messages.onlyColorCodes",
+  Args0 ONLY_COLOR_CODES = () -> utils().configString("messages.prefix" + "messages.onlyColorCodes",
       "<red>You may only include color codes.");
 
-  Args0 PLUGIN_RELOADED = () -> utils().configString(utils().getPrefix() + "messages.pluginReloaded", "<green>Plugin reloaded.");
+  Args0 PLUGIN_RELOADED = () -> utils().configString("messages.prefix" + "messages.pluginReloaded", "<green>Plugin reloaded.");
 
   /**
    * A message that has no arguments that need to be replaced.
