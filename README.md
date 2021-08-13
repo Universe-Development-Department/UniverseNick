@@ -14,6 +14,9 @@ This plugin made for **UniverseNetwork.**
 ### Example for Gradient Color
 - `/nick <gradient:#1eae98:#d8b5ff>rajaopak</gradient>`
 
+## Placeholder
+- `%UniverseNick_nickname%`
+
 
 
 ***
